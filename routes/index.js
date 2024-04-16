@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-router.get("/", (req, res) => {
-  res.send("Hello World");
-});
+const Auth = require("./authRouter");
+
+router.use("/api/v1/auth", Auth);
 
 module.exports = router;
