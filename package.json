@@ -2,9 +2,9 @@
   "name": "team03-api-perpustakaan",
   "version": "1.0.0",
   "description": "team03-api-perpustakaan",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon app.js",
     "db-create": "sequelize db:create",
     "db-drop": "sequelize db:drop",
     "db-migrate": "sequelize db:migrate",
