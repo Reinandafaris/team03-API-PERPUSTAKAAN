@@ -4,7 +4,13 @@
   "description": "team03-api-perpustakaan",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "db-create": "sequelize db:create",
+    "db-drop": "sequelize db:drop",
+    "db-migrate": "sequelize db:migrate",
+    "db-migrate-undo": "sequelize db:migrate:undo:all",
+    "db-seed": "sequelize db:seed:all",
+    "db-seed-undo": "sequelize db:seed:undo:all"
   },
   "author": "faris, viery, rizaldy, asyifa, qonita",
   "license": "ISC",
