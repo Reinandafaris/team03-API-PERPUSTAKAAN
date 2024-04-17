@@ -1,27 +1,45 @@
 const router = require("express").Router();
 
-const Shop = require("../controllers/shopController");
+const { Shop } = require("../models");
 
+const shopController = require("../controllers/shopController");
+
+const upload = require("../middlewares/uploader");
 const autentikasi = require("../middlewares/authenticate");
 const checkRole = require("../middlewares/checkRole");
 const checkOwnership = require("../middlewares/checkOwnership");
 const checkId = require("../middlewares/checkId");
 
-router.get("/", Shop.findShops);
+router.post(
+  "/",
+  autentikasi,
+  checkRole("Admin, Manager"),
+  upload.array("images"),
+  shopController.createShop
+);
+router.get("/", autentikasi, shopController.findShops);
 router.get(
   "/:id",
-  checkId,
   autentikasi,
-  checkOwnership,
-  Shop.findShopById
+  checkId(Shop),
+  shopController.findShopById
 );
 router.patch(
   "/:id",
-  checkId,
   autentikasi,
+  checkId(Shop),
+  checkRole(["Admin", "Manager"]),
   checkOwnership,
-  checkRole("Owner"),
-  Shop.updateShop
+  upload.array("images"),
+  shopController.updateShop
+);
+router.delete(
+  "/:id",
+  autentikasi,
+  checkId(Shop),
+  checkRole(["Admin", "Manager"]),
+  checkOwnership,
+  shopController.deleteShop
 );
 
 module.exports = router;
