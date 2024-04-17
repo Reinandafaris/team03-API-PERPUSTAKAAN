@@ -1,10 +1,10 @@
 const router = require("express").Router();
 
-const HomePage = require("./allPagesRouter");
+const AllPages = require("./allPagesRouter");
 const Auth = require("./authRouter");
 
 // route pages
-router.use("/", HomePage);
+router.use("/", AllPages);
 
 // route api
 router.use("/api/v1/auth", Auth);
