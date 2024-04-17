@@ -11,16 +11,10 @@ const checkOwnership = require("../middlewares/checkOwnership");
 const checkId = require("../middlewares/checkId");
 
 router.get("/", autentikasi, userController.findUsers);
-router.get(
-  "/:id",
-  autentikasi,
-  checkId(User),
-  userController.findUserById
-);
+router.get("/:id", autentikasi, userController.findUserById);
 router.patch(
   "/:id",
   autentikasi,
-  checkId(User),
   checkRole(["Admin", "Manager"]),
   checkOwnership,
   upload.array("images"),
@@ -29,7 +23,6 @@ router.patch(
 router.delete(
   "/:id",
   autentikasi,
-  checkId(User),
   checkRole(["Admin", "Manager"]),
   checkOwnership,
   userController.deleteUser

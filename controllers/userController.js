@@ -25,6 +25,15 @@ const findUserById = async (req, res, next) => {
       },
     });
 
+    if (!user) {
+      return next(
+        new ApiError(
+          `user with this ${req.params.id} is not exist`,
+          404
+        )
+      );
+    }
+
     res.status(200).json({
       status: "Success",
       data: {
