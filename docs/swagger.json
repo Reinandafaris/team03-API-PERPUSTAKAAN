@@ -1,0 +1,283 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "team03-api-perpustakaan",
+    "description": "API description in Markdown.",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "This is API for managing Authentication"
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:5000/api/v1"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register",
+        "description": "This is API for register new user",
+        "security": [
+          {
+            "bearerToken": []
+          }
+        ],
+        "requestBody": {
+          "description": "Register a new user",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "faris"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "faris@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "faris1234"
+                  },
+                  "confirmPassword": {
+                    "type": "string",
+                    "example": "faris1234"
+                  },
+                  "age": {
+                    "type": "integer",
+                    "example": 17
+                  },
+                  "city": {
+                    "type": "string",
+                    "example": "Bekasi"
+                  },
+                  "shopId": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Success"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "dataValues": {
+                          "type": "object",
+                          "properties": {
+                            "role": {
+                              "type": "string",
+                              "example": "Staff"
+                            },
+                            "imageUrl": {
+                              "type": "string",
+                              "example": "https://tse2.mm.bing.net/th?id=OIP.U2iQ7wNK6ZzTW_traW_-PQHaHa&pid=Api&P=0&h=180"
+                            },
+                            "id": {
+                              "type": "integer",
+                              "example": 13
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "faris"
+                            },
+                            "city": {
+                              "type": "string",
+                              "example": "Bekasi"
+                            },
+                            "age": {
+                              "type": "integer",
+                              "example": 17
+                            },
+                            "shopId": {
+                              "type": "integer",
+                              "example": 32
+                            },
+                            "updatedAt": {
+                              "type": "string",
+                              "example": "2024-04-17T00:33:32.103Z"
+                            },
+                            "createdAt": {
+                              "type": "string",
+                              "example": "2024-04-17T00:33:32.103Z"
+                            }
+                          }
+                        },
+                        "_previousDataValues": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "faris"
+                            },
+                            "city": {
+                              "type": "string",
+                              "example": "Bekasi"
+                            },
+                            "age": {
+                              "type": "integer",
+                              "example": 17
+                            },
+                            "shopId": {
+                              "type": "integer",
+                              "example": 32
+                            },
+                            "id": {
+                              "type": "integer",
+                              "example": 13
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "Staff"
+                            },
+                            "imageUrl": {
+                              "type": "string",
+                              "example": "https://tse2.mm.bing.net/th?id=OIP.U2iQ7wNK6ZzTW_traW_-PQHaHa&pid=Api&P=0&h=180"
+                            },
+                            "createdAt": {
+                              "type": "string",
+                              "example": "2024-04-17T00:33:32.103Z"
+                            },
+                            "updatedAt": {
+                              "type": "string",
+                              "example": "2024-04-17T00:33:32.103Z"
+                            }
+                          }
+                        },
+                        "uniqno": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "_changed": {
+                          "type": "object",
+                          "description": "**(omitted for brevity)**"
+                        },
+                        "_options": {
+                          "type": "object",
+                          "properties": {
+                            "isNewRecord": {
+                              "type": "boolean",
+                              "example": true
+                            },
+                            "_schema": {
+                              "type": "object",
+                              "description": "**(omitted for brevity)**"
+                            },
+                            "_schemaDelimiter": {
+                              "type": "string",
+                              "description": "**(omitted for brevity)**"
+                            }
+                          }
+                        },
+                        "isNewRecord": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "faris@gmail.com"
+                        },
+                        "password": {
+                          "type": "string",
+                          "example": "$2b$10$yWGvwMmDEXJEEE6C/kTb7uq98K2k3XEEGZgB2qMHc1Dpv3KnzoIY."
+                        },
+                        "confirmPassword": {
+                          "type": "string",
+                          "example": "$2b$10$vGO3v3OghjvZ1Z2E0AfQsOg6Nt.vOzZ2d6qBHV91jlCvjoeY6fjqG"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User email already taken",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "failed"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "User email already taken"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "auth": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "faris"
+          },
+          "email": {
+            "type": "string",
+            "example": "faris@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "faris1234"
+          },
+          "confirmPassword": {
+            "type": "string",
+            "example": "faris1234"
+          },
+          "age": {
+            "type": "integer",
+            "example": 17
+          },
+          "city": {
+            "type": "string",
+            "example": "Bekasi"
+          },
+          "shopId": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerToken": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
