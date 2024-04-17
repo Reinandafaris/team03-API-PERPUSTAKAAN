@@ -10,13 +10,6 @@ const checkRole = require("../middlewares/checkRole");
 const checkOwnership = require("../middlewares/checkOwnership");
 const checkId = require("../middlewares/checkId");
 
-router.post(
-  "/",
-  autentikasi,
-  checkRole("Admin, Manager"),
-  upload.array("images"),
-  userController.createUser
-);
 router.get("/", autentikasi, userController.findUsers);
 router.get(
   "/:id",
