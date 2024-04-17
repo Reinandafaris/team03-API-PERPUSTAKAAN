@@ -10,8 +10,13 @@ const RegisterPage = async (req, res) => {
   res.render("components/auth/registerPage.ejs");
 };
 
+const AdminPage = async (req, res) => {
+  res.render("components/admin/adminPage.ejs");
+};
+
 module.exports = {
   HomePage,
   LoginPage,
   RegisterPage,
+  AdminPage,
 };

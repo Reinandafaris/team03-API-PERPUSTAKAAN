@@ -16,7 +16,7 @@
 <% if (typeof token !== 'undefined') { %>
   <script>
     localStorage.setItem('token', '<%= JSON.stringify(token) %>');
-    alert('Login Successful'); // Redirect to a protected page
+    window.location.href = '/admin';
   </script>
   <% } %>
 
