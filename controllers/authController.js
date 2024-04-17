@@ -5,7 +5,7 @@ const ApiError = require("../utils/apiError");
 
 const register = async (req, res, next) => {
   try {
-    const { name, email, password, confirmPassword, age, address } =
+    const { name, email, password, confirmPassword, age, city } =
       req.body;
 
     // validasi untuk check apakah email nya udah ada
@@ -45,7 +45,7 @@ const register = async (req, res, next) => {
 
     const newUser = await User.create({
       name,
-      address,
+      city,
       age,
       shopId,
     });
